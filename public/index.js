@@ -1,5 +1,8 @@
 /* global $ */
 
+// make sure authors are in 1 line
+document.querySelectorAll('.cproAuthors br').forEach(el => el.replaceWith(' | '))
+
 // replace helper
 const replace = (selector, from, to) => {
   $(selector).html($(selector).html().replace(from, to))
