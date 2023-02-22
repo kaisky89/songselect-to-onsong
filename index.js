@@ -3,6 +3,10 @@
 // make sure authors are in 1 line
 document.querySelectorAll('.cproAuthors br').forEach(el => el.replaceWith(' | '))
 
+// handle explicit second author line
+$('.cproAuthor2').prepend('{subtitle: ')
+$('.cproAuthor2').append('}')
+
 // replace helper
 const replace = (selector, from, to) => {
   $(selector).html($(selector).html().replace(from, to))
