@@ -1,9 +1,9 @@
+export const toDataUrl = (text: string) =>
+  `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`
+
 export const download = (filename: string, text: string) => {
   const element = document.createElement('a')
-  element.setAttribute(
-    'href',
-    `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`
-  )
+  element.setAttribute('href', toDataUrl(text))
   element.setAttribute('download', filename)
   element.style.display = 'none'
   document.body.appendChild(element)
