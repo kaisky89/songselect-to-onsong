@@ -8,7 +8,7 @@
 - Open the console of your browser and enter the following:
 
 ```js
-import("https://kaisky89.github.io/songselect-to-onsong/index.js");
+import('https://kaisky89.github.io/songselect-to-onsong/index.js');
 ```
 
 - Copy and paste the resulting text of the song into a new file (using a text editor like sublime, vs code, atom, etc...)
