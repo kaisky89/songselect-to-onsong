@@ -1,5 +1,7 @@
 # songselect-to-onsong
 
+[![Build & Deploy](https://github.com/kaisky89/songselect-to-onsong/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/kaisky89/songselect-to-onsong/actions/workflows/build-and-deploy.yml)
+
 > This small tool helps you to convert songselect songs to the onsong file format.
 
 ## How to use it
