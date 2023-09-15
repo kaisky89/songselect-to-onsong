@@ -1,6 +1,6 @@
 import {
   songselectToOnsong
-} from "./chunk-MSYRIGIO.js";
+} from "./chunk-664SLGAC.js";
 
 // src/index.ts
 songselectToOnsong();
