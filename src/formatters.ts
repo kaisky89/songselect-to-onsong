@@ -30,7 +30,7 @@ export const formatHeaderSection = () => {
     tempoTimeWrapper.innerHTML = ''
     const tempoValue = tempoString?.split('-')?.[1]?.trim?.()
     const tempoElement = document.createElement('p')
-    tempoElement.innerHTML = `Tempo: ${tempoValue}<br />`
+    tempoValue && (tempoElement.innerHTML = `Tempo: ${tempoValue}<br />`)
     tempoElement.classList.add('onsongTempo')
     $('.cproTempoTimeWrapper')?.append(tempoElement)
 
@@ -38,7 +38,7 @@ export const formatHeaderSection = () => {
     $('.cproSongHeader')?.append(document.createElement('br'))
     const timeValue = timeString?.split('-')[1].trim()
     const timeElement = document.createElement('p')
-    timeElement.innerHTML = `Time: ${timeValue}<br />`
+    timeValue && (timeElement.innerHTML = `Time: ${timeValue}<br />`)
     timeElement.classList.add('onsongTime')
     $('.cproSongHeader')?.append(timeElement)
 
