@@ -28,7 +28,7 @@ export const formatHeaderSection = () => {
         ?.textContent?.split('|')
         .map((line) => line.trim()) || []
     tempoTimeWrapper.innerHTML = ''
-    const tempoValue = tempoString?.split('-')[1].trim()
+    const tempoValue = tempoString?.split('-')?.[1]?.trim?.()
     const tempoElement = document.createElement('p')
     tempoElement.innerHTML = `Tempo: ${tempoValue}<br />`
     tempoElement.classList.add('onsongTempo')
