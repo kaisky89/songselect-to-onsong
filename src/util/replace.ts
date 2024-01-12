@@ -1,6 +1,10 @@
 import { $ } from './selector'
 
-export const replace = (selector: string, from: string, to: string) => {
+export const replace = (
+  selector: string,
+  from: string | RegExp,
+  to: string
+) => {
   const selectedElement = $(selector)
   if (!selectedElement) return
 

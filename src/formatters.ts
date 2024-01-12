@@ -44,7 +44,7 @@ export const formatHeaderSection = () => {
 
     // Song Number
     tempoTimeWrapper.parentNode?.append($('.songnumber') || '')
-    replace('.songnumber', ' Song #', ':')
+    replace('.songnumber', /.* (?=[0-9])/, 'CCLI: ')
   }
 }
 
