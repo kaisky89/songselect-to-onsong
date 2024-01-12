@@ -6,7 +6,9 @@
 
 ## How to use it
 
-- Login to songselect and open the song that you want to convert in "Akkorde" mode
+### On a desktop computer
+
+- Login to songselect and open the song that you want to convert, switch to chords mode
 - Open the console of your browser and enter the following:
 
 ```js
@@ -14,6 +16,12 @@ import('https://kaisky89.github.io/songselect-to-onsong/index.js')
 ```
 
 - The song will be automatically downloaded as \*.onsong file.
+
+### On iPhone / iPad
+
+- Download and install [the Shortcut](https://kaisky89.github.io/songselect-to-onsong/Songselect%20To%20Onsong.shortcut)
+- Using Safari, login to songselect and open the song that you want to convert, switch to chords mode
+- Click on the share button, select "Songselect To Onsong"
 
 ## Options
 
