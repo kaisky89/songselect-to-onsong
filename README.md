@@ -36,6 +36,7 @@ songselectToOnsong({
    * - `file` (default): Download as *.onsong file
    * - `console`: Output in browsers console
    * - `newTab`: Opens result in new tab
+   * - `returnValue`: Returns the string as the function return
    */
   output: 'file',
 })

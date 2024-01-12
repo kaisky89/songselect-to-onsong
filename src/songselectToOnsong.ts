@@ -12,7 +12,7 @@ export const songselectToOnsong = ({
   output = 'file',
 }: {
   shouldSkipBackup?: boolean
-  output?: 'file' | 'console' | 'newTab'
+  output?: 'file' | 'console' | 'newTab' | 'returnValue'
 } = {}) => {
   let recoverBackup = () => {}
   if (!shouldSkipBackup) recoverBackup = createBackup()
@@ -29,8 +29,11 @@ export const songselectToOnsong = ({
       const newTab = window.open()
       newTab?.document.write(`<pre>${fullText}</pre>`)
     },
+    returnValue: () => fullText,
   }
-  outputMap[output]?.()
+  const returnValue = outputMap[output]?.()
 
   recoverBackup()
+
+  return returnValue
 }
