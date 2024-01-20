@@ -8,5 +8,5 @@ export const replace = (
   const selectedElement = $(selector)
   if (!selectedElement) return
 
-  selectedElement.outerHTML = selectedElement.outerHTML.replace(from, to)
+  selectedElement.innerHTML = selectedElement.innerHTML.replace(from, to)
 }

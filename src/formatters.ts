@@ -1,3 +1,4 @@
+import { formatMidiProgram } from './util/midiProgram'
 import { replace } from './util/replace'
 import { $ } from './util/selector'
 
@@ -20,6 +21,16 @@ export const formatHeaderSection = () => {
   replace('.cproSongKeyWrapper', ' | ', '')
   $('.cproSongKeyWrapper')?.append(document.createElement('br'))
 
+  const addMetaData = (name: string, value: string) => {
+    $('.cproSongHeader')?.append(document.createElement('br'))
+    const element = document.createElement('p')
+    value &&
+      (element.innerHTML = `${name}: ${value}<br />
+      `)
+    element.classList.add(`onsong${name}`)
+    $('.cproSongHeader')?.append(element)
+  }
+
   const tempoTimeWrapper = $('.cproTempoTimeWrapper')
   if (tempoTimeWrapper) {
     // Tempo
@@ -35,16 +46,20 @@ export const formatHeaderSection = () => {
     $('.cproTempoTimeWrapper')?.append(tempoElement)
 
     // Time
-    $('.cproSongHeader')?.append(document.createElement('br'))
-    const timeValue = timeString?.split('-')[1].trim()
-    const timeElement = document.createElement('p')
-    timeValue && (timeElement.innerHTML = `Time: ${timeValue}<br />`)
-    timeElement.classList.add('onsongTime')
-    $('.cproSongHeader')?.append(timeElement)
+    addMetaData('Time', timeString?.split('-')[1].trim())
 
     // Song Number
     tempoTimeWrapper.parentNode?.append($('.songnumber') || '')
     replace('.songnumber', /.* (?=[0-9])/, 'CCLI: ')
+
+    // MIDI Programm
+    const songNumber = parseInt(
+      $('.songnumber')?.textContent?.match(/[0-9]+/)?.[0] || '0'
+    )
+    // receiving program number
+    addMetaData('MIDI-Index', formatMidiProgram(songNumber, 15))
+    // sending program number
+    addMetaData('MIDI', formatMidiProgram(songNumber, 14))
   }
 }
 
