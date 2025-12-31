@@ -18,7 +18,7 @@ jobs:
           node-version: '${{ steps.nvmrc.outputs.node_version }}'
 
       - name: Yarn Setup
-        uses: DerYeger/yarn-setup-action@v2
+        uses: DerYeger/yarn-setup-action@v2.0.21
         with:
           node-version: '${{ steps.nvmrc.outputs.node_version }}'
 
@@ -27,7 +27,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: crazy-max/ghaction-github-pages@v4.2.0
         with:
           keep_history: true
           build_dir: dist
