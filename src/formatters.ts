@@ -21,7 +21,7 @@ export const formatHeaderSection = () => {
   replace('.cproSongKeyWrapper', ' | ', '')
   $('.cproSongKeyWrapper')?.append(document.createElement('br'))
 
-  const addMetaData = (name: string, value: string) => {
+  const addMetaData = (name: string, value?: string) => {
     $('.cproSongHeader')?.append(document.createElement('br'))
     const element = document.createElement('p')
     value &&
@@ -34,11 +34,18 @@ export const formatHeaderSection = () => {
   const tempoTimeWrapper = $('.cproTempoTimeWrapper')
   if (tempoTimeWrapper) {
     // Tempo
-    const [tempoString, timeString] =
+    const tempoAndTimeStrings =
       $('.cproTempoTimeWrapper')
         ?.textContent?.split('|')
         .map((line) => line.trim()) || []
     tempoTimeWrapper.innerHTML = ''
+    const tempoString = tempoAndTimeStrings.find(
+      (line) => line.includes('Tempo') || !line.includes('/')
+    )
+    const timeString = tempoAndTimeStrings.find(
+      (line) =>
+        line.includes('Taktart') || line.includes('Time') || line.includes('/')
+    )
     const tempoValue = tempoString?.split('-')?.[1]?.trim?.()
     const tempoElement = document.createElement('p')
     tempoValue && (tempoElement.innerHTML = `Tempo: ${tempoValue}<br />`)
